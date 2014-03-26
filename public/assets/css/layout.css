@@ -1,0 +1,33 @@
+/* =Layout */
+#main{
+
+}
+.right-sidebar{
+	background: #FFF;
+}
+.move-left a.exit-off-canvas{
+	box-shadow: -4px 0 4px rgba(0, 0, 0, 0.1), 4px 0 4px rgba(0, 0, 0, 0.1);
+}
+/* should work differently when displayin on things larger then a phone */
+@media only screen and (min-width: 40.063em) { 
+	.right-sidebar{
+		background: #FFF;
+	    float: right;
+	    line-height: 20px;
+	    position: fixed;
+	    right: 0;
+	    top: 30px;
+	    width: 39%;
+	    max-width: 500px;
+	    transform:none;
+	    border-left:1px solid #CCC;
+	}
+	.move-left > .inner-wrap{
+		transform: none;
+	}
+	.main-section{
+		float:left;
+		width:60%;
+	}
+	
+} /* min-width 641px, medium screens */

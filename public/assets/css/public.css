@@ -1,0 +1,52 @@
+/* This stylesheet is used to style the public-facing components of the plugin. */
+/**
+ *
+ * 1. Admin Bar
+ * 2. Layout 
+ * 
+ * 3. Navigation
+ * 
+ */
+
+/* =Admin Bar */
+.admin-bar .page-wrap{ margin-top: 30px; overflow: none; }
+.off-canvas-wrap{
+	overflow-x: hidden!important;
+}
+@media ( max-width:767px ) { 
+	.admin-bar .page-wrap{ margin-top: 46px; }
+}
+
+/* =Layout */
+.gelato-sidebar,
+.gelato-navigation{ background: #FFF; }
+.gelato-pad { padding: 10px; }
+
+@media only screen and (min-width: 40.063em) { 
+	.gelato-sidebar{
+		background: red;
+		position: fixed;
+    	overflow-y: auto;
+    	right: 0;
+    	top: 30px;
+    	transform: none;
+    	width: 300px;
+    	z-index: 1001;
+	}
+	.gelato-content{
+		float:left;
+		width:60%;
+	}
+}
+
+
+/* =Navigation */
+.off-canvas-wrap .genericon{
+	font-size: 25px;
+	margin-top: 10px;
+	margin: 10px 10px 0;
+	color:#FFF;
+}
+
+.move-right a.exit-off-canvas,
+.move-left  a.exit-off-canvas { box-shadow: -4px 0 4px rgba(0, 0, 0, 0.1), 4px 0 4px rgba(0, 0, 0, 0.1);}
