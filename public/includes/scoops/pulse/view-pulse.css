@@ -1,6 +1,8 @@
-.pulse-wrapper {
-    background: white;
+#pulse-list .pulse{ margin:0; }
+#pulse-list .expand{
+    margin:5px 0;
 }
+
 
 .pulse-wrapper .bookmark {
     display: block;

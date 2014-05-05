@@ -47,7 +47,7 @@
 				</div>
 			</aside>
 			<section class="main-section gelato-content">
-				<div class="gelato-pad">
+				<div id="gelato-shell-pad" class="gelato-pad <?php Gelato_Scoop::the_content_class(); ?>">
 				<?php Gelato_Scoop::the_content(); ?>
 				</div>
 			</section>

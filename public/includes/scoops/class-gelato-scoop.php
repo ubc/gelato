@@ -16,7 +16,42 @@ class Gelato_Scoop {
 		wp_register_script( 'popcorn',      GELATO_DIR_URL.'/public/assets/js/popcorn-complete.js',  array(  ), '1.0', true );
 		wp_register_script( 'foundation',   GELATO_DIR_URL.'/public/assets/foundation/js/foundation.min.js',  array( 'jquery' ), '1.0', true );
 		wp_register_script( 'gelato-scoop', GELATO_DIR_URL.'/public/assets/js/public.js',  array( 'jquery', 'popcorn',  'foundation' ), '1.0', true );
+		
+	}
 
+	function string_to_seconds( $string ) {
+		$seconds = 0;
+		$segments = array_reverse( split( ':', $string ) );
+		$increments = array( 1, MINUTE_IN_SECONDS, HOUR_IN_SECONDS );
+		
+		for ( $i = 0; $i < count( $segments ); $i++ ) {
+			$seconds += $segments[$i] * $increments[$i];
+		}
+		
+		return $seconds;
+	}
+	
+	function seconds_to_string( $seconds, $zeroes ) {
+		$string = "";
+		$increments = array( HOUR_IN_SECONDS, MINUTE_IN_SECONDS, 1 );
+		$count = count( $increments );
+		$segments = array();
+		$remainder = $seconds;
+		
+		for ( $i = 0; $i < $count; $i++ ) {
+			if ( $increments[$i] < $remainder ) {
+				$segments[$i] = (int) ( $remainder / $increments[$i] );
+				$remainder = $remainder % $increments[$i];
+			} else if ( $zeroes >= ($count - $i - 1)*2 ) {
+				$segments[$i] = 0;
+			}
+			
+			if ( $zeroes >= ($count - $i)*2 + 1 && $segments[$i] < 10 ) {
+				$segments[$i] = "0".$segments[$i];
+			}
+		}
+		
+		return implode( ":", $segments );
 	}
 	
 
@@ -27,7 +62,6 @@ class Gelato_Scoop {
 
 	function the_head(){
 		global $post;
-		
 		
 		$data = apply_filters( "gelato-localize-view", array(
 			'session_data' => array( 
@@ -48,7 +82,10 @@ class Gelato_Scoop {
 	function localize_view( $data ) {
 
 		foreach ( self::$modules as $index => $module ) {
-			$data[$module->atts['slug']] = $module->data();
+			if( method_exists ( $module , 'localize_data' ) )
+				$data  = $module->localize_data( $data );
+			else if( method_exists ( $module , 'data' ) )
+				$data[$module->atts['slug']] = $module->data();
 		}
 		
 		return $data;
@@ -74,6 +111,13 @@ class Gelato_Scoop {
 		foreach ( self::$modules as $index => $module ) {
 			if( method_exists ( $module , 'content' ))
 				$module->content();
+		}
+	}
+
+	function the_content_class(){
+		foreach ( self::$modules as $index => $module ) {
+			if( method_exists ( $module , 'content_class' ))
+				$module->content_class();
 		}
 	}
 

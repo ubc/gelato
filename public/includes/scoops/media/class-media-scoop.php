@@ -40,13 +40,11 @@ class Media_Scoop extends Gelato_Scoop {
 		wp_enqueue_script( 'gelato-view-media' );
 		$media = $this->data();
 		?>
-		<div id="gelato-media" class="iframe-wrapper flex-video <?php echo $media['type']; ?>"></div>
+		<div id="gelato-media-shell"><div id="gelato-media" class="iframe-wrapper flex-video <?php echo $media['type']; ?>"></div></div>
 		<?php
 	}
 
-	public function sidebar(){
-		echo "the media sidebar";
-	}
+	
 }
 
 $gelato_scoops['media'] = new Media_Scoop();

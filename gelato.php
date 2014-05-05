@@ -47,7 +47,11 @@ define( 'GELATO_VERSION' ,  0.1 );
 require_once( GELATO_DIR_PATH . 'public/class-gelato.php' );
 
 require_once( GELATO_DIR_PATH . 'public/includes/scoops/class-gelato-scoop.php' );
+require_once( GELATO_DIR_PATH . 'public/includes/scoops/navbar/class-navbar-scoop.php' );
+require_once( GELATO_DIR_PATH . 'public/includes/scoops/navigation/class-navigation-scoop.php' );
 require_once( GELATO_DIR_PATH . 'public/includes/scoops/media/class-media-scoop.php' );
+require_once( GELATO_DIR_PATH . 'public/includes/scoops/presentpress/class-presentpress-scoop.php' );
+require_once( GELATO_DIR_PATH . 'public/includes/scoops/pulse/class-pulse-scoop.php' );
 
 
 /*

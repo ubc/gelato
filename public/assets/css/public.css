@@ -14,7 +14,7 @@
 	overflow-x: hidden!important;
 }
 @media ( max-width:767px ) { 
-	.admin-bar .page-wrap{ margin-top: 46px; }
+	.admin-bar .page-wrap,
 	.admin-bar .gelato-sidebar{ margin-top:46px;}
 }
 
@@ -24,16 +24,25 @@
 .gelato-pad { padding: 10px; }
 
 @media only screen and (min-width: 40.063em) { 
+	.admin-bar .gelato-sidebar{ margin-top: 30px; }
 	.gelato-sidebar{
 		background: #fff;
 		position: fixed;
     	overflow-y: auto;
     	right: 0;
-    	margin-top: 30px;
-    	transform: none;
+    	margin-top:0;
+    	transform: 		   none;
+    	-webkit-transform: none;
+  		-moz-transform:    none;
+  		-ms-transform:     none;
+  		-o-transform:      none;
+  		transform:         none;
     	width: 40%;
     	z-index: 1001;
     	box-shadow: -4px 0 4px rgba(0, 0, 0, 0.1), 4px 0 4px rgba(0, 0, 0, 0.1);
+	}
+	.right-small{
+		display: none;
 	}
 	.gelato-content{
 		float:left;

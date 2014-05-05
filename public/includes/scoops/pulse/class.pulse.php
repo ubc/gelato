@@ -127,7 +127,7 @@ class SCCT_Module_Pulse extends Session_CCT_Module {
 		<?php
 	}
 	
-	function localize_view( $data ) {
+	function localize_data( $data ) {
 		$pulse_list = array();
 		$args = Pulse_CPT_Form_Widget::query_arguments();
 		$args['posts_per_page'] = -1;

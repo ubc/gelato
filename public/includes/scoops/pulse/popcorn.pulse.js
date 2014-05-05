@@ -99,7 +99,7 @@
 		 */
 		start: function( event, options ){
 			//options._container.style.display = "inline";
-			jQuery(options._container).fadeIn();
+			jQuery( options._container ).fadeIn();
 		},
 		
 		/**
@@ -110,7 +110,7 @@
 		 */
 		end: function( event, options ){
 			//options._container.style.display = "none";
-			jQuery(options._container).fadeOut();
+			jQuery( options._container ).fadeOut();
 		},
 		
 		_teardown: function( options ) {
